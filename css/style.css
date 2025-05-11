@@ -1,88 +1,172 @@
-html, body {
+// Finally!!  
+// Now I understand why my coworkers warned me about CSS.
+// This took me a while to figure out.
+// I had to read a lot of documentation to get this one.
+// Also, code autocomplete keeps trying to add things that cause problems.
+
+body 
+{
     height: 100%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body {
+
+body 
+{
     min-height: 100vh;
-    height: 100vh;
     display: flex;
-    background-color: green;
     flex-direction: column;
+    background-color: purple;
+    overflow-x: hidden;
 }
 
-header {
+header 
+{
     flex: 0 0 10vh;
-    height: 10vh;
-
-    min-height: 60px;
-    max-height: 120px;
-    background: #972ea5;
-    color: #fff;
-}
-
-main {
-    flex: 1 1 80%;
-    display: flex;
-    flex-direction: row;
-    height: 80vh;
-    min-height: 0;
-}
-
-.article-container {
-    flex: 1 1 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: stretch;
-    height: 100%;
-    background: #e0e0e0;
-}
-
-.articles {
-    flex: 1 1 0;
+    min-height: 10px;
+    max-height: 100px;
+    background: purple;
+    color: white;
+    width: 100%;
+    z-index: 15;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 8px 0;
-    background: #d32f2f;
-    color: #fff;
+    margin: 0;
+    padding: 0;
+    border-bottom: none;
 }
 
-aside {
-    flex: 0 0 10vw;
-    width: 10vw;
-    min-width: 60px;
-    max-width: 120px;
-    height: 100%;
-    background:blue;
+main 
+{
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: green;
+    margin: 0;
 }
 
-footer {
+.article-container 
+{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    width: 100%;
+    gap: 8px;
+    padding: 8px;
+}
+
+.articles 
+{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: red;
+    color: white;
+}
+
+aside 
+{
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 80px;
+    background: blue;
+    color: white;
+    order: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer 
+{
     flex: 0 0 10vh;
-    height: 10vh;
     min-height: 60px;
     max-height: 120px;
     background: orange;
     color: #222;
+    width: 100%;
+    order: 3;
 }
 
-@media (max-width: 600px) {
-    main {
+@media (max-width: 600px) 
+{
+    header 
+    {
+        position: relative;
+    }
+    
+    main 
+    {
         flex-direction: column;
-        height: 80vh;
+        margin-top: 0;
+        padding: 0;
     }
-    .article-container {
-        width: 100%;
-        height: 80%;
-    }
+    
     aside {
-        width: 100%;
+        order: 1;
+    }
+    
+    .article-container 
+    {
+        order: 2;
+    }
+}
+
+@media (min-width: 601px) 
+{
+    header 
+    {
+        position: fixed;
+        top: 0;
+        left: 0;
         height: 10vh;
-        min-width: unset;
-        max-width: unset;
-        min-height: 40px;
-        max-height: 120px;
+        min-height: 10px;
+        max-height: 100px;
+    }
+    
+    main 
+    {
+        flex-direction: row;
+        margin-top: 10vh;
+        background-color: green;
+        padding-top: 0;
+        border-top: none;
+    }
+    
+    aside 
+    {
+        position: fixed;
+        left: 0;
+        top: 10vh;
+        bottom: 10vh;
+        height: calc(100vh - 20vh);
+        width: 15vw;
+        min-width: 200px;
+        max-width: 300px;
+        z-index: 5;
+        margin: 0;
+        padding: 0;
+        border-top: none;
+    }
+    
+    .article-container 
+    {
+        margin-left: 15vw;
+        width: calc(100% - 15vw);
+        padding: 15px;
+    }
+    
+    footer 
+    {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 5;
     }
 }
