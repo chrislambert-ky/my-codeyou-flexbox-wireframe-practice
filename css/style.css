@@ -147,7 +147,6 @@ footer
         height: calc(100vh - 20vh);
         width: 15vw;
         min-width: 200px;
-        max-width: 300px;
         z-index: 5;
         margin: 0;
         padding: 0;
